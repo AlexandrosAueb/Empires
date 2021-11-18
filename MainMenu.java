@@ -71,6 +71,20 @@ public class MainMenu {
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("START");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				Players player1=new Players (MainMenu.player1,"blue");
+				Players player2=new Players (MainMenu.player2,"green");
+				Players player3=new Players (MainMenu.player3,"yellow");
+				Players player4=new Players (MainMenu.player4,"brown");
+				System.out.println(player1);
+				System.out.println(player2);
+				System.out.println(player3);
+				System.out.println(player4);
+				System.exit(1);
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btnNewButton.setBounds(1007, 691, 216, 63);
 		frame.getContentPane().add(btnNewButton);
