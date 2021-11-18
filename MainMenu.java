@@ -1,10 +1,8 @@
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Image;
-
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,14 +14,20 @@ import javax.swing.JToggleButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextPane;
 import java.awt.SystemColor;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainMenu {
 
+	public static String player1;
+	public static String player2;
+	public static String player3;
+	public static String player4;
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField Input1;
+	private JTextField Input2;
+	private JTextField Input3;
+	private JTextField Input4;
 
 	/**
 	 * Launch the application.
@@ -77,11 +81,11 @@ public class MainMenu {
 		lblNewLabel_1.setBounds(400, 528, 129, 44);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField.setBounds(540, 528, 193, 44);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		Input1 = new JTextField();
+		Input1.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		Input1.setBounds(540, 528, 193, 44);
+		frame.getContentPane().add(Input1);
+		Input1.setColumns(10);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Player 2:");
 		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -89,11 +93,11 @@ public class MainMenu {
 		lblNewLabel_1_1.setBounds(400, 585, 129, 44);
 		frame.getContentPane().add(lblNewLabel_1_1);
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField_1.setColumns(10);
-		textField_1.setBounds(540, 585, 193, 44);
-		frame.getContentPane().add(textField_1);
+		Input2 = new JTextField();
+		Input2.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		Input2.setColumns(10);
+		Input2.setBounds(540, 585, 193, 44);
+		frame.getContentPane().add(Input2);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Player 3:");
 		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -101,11 +105,11 @@ public class MainMenu {
 		lblNewLabel_1_2.setBounds(400, 643, 129, 44);
 		frame.getContentPane().add(lblNewLabel_1_2);
 		
-		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField_2.setColumns(10);
-		textField_2.setBounds(540, 643, 193, 44);
-		frame.getContentPane().add(textField_2);
+		Input3 = new JTextField();
+		Input3.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		Input3.setColumns(10);
+		Input3.setBounds(540, 643, 193, 44);
+		frame.getContentPane().add(Input3);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("Player 4:");
 		lblNewLabel_1_3.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -113,11 +117,11 @@ public class MainMenu {
 		lblNewLabel_1_3.setBounds(400, 700, 129, 44);
 		frame.getContentPane().add(lblNewLabel_1_3);
 		
-		textField_3 = new JTextField();
-		textField_3.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField_3.setColumns(10);
-		textField_3.setBounds(540, 700, 193, 44);
-		frame.getContentPane().add(textField_3);
+		Input4 = new JTextField();
+		Input4.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		Input4.setColumns(10);
+		Input4.setBounds(540, 700, 193, 44);
+		frame.getContentPane().add(Input4);
 		
 		JTextPane txtpnWelcomeTo = new JTextPane();
 		txtpnWelcomeTo.setEditable(false);
@@ -133,10 +137,23 @@ public class MainMenu {
 		lblNewLabel_2.setBounds(399, 10, 129, 119);
 		frame.getContentPane().add(lblNewLabel_2);
 		
+		JButton btnNewButton_1 = new JButton("SUBMIT");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				player1=Input1.getText();
+				player2=Input1.getText();
+				player3=Input1.getText();
+				player4=Input1.getText();
+			}
+		});
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		btnNewButton_1.setBounds(487, 767, 187, 51);
+		frame.getContentPane().add(btnNewButton_1);
+		
 		JLabel lblNewLabel_3 = new JLabel("New label");
 		img=new ImageIcon(this.getClass().getResource("/BG.jpg")).getImage();
 		lblNewLabel_3.setIcon(new ImageIcon(img));
-		lblNewLabel_3.setBounds(0, 0, 1266, 845);
+		lblNewLabel_3.setBounds(0, 0, 1266, 884);
 		frame.getContentPane().add(lblNewLabel_3);
 	}
 }
