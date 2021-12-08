@@ -19,10 +19,10 @@ import java.awt.event.ActionEvent;
 
 public class MainMenu {
 
-	public static String player1="Player 1";
-	public static String player2="Player 2";
-	public static String player3="Player 3";
-	public static String player4="Player 4";
+	public static String playerName1="Player 1";
+	public static String playerName2="Player 2";
+	public static String playerName3="Player 3";
+	public static String playerName4="Player 4";
 	private JFrame frame;
 	private JTextField Input1;
 	private JTextField Input2;
@@ -33,7 +33,7 @@ public class MainMenu {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void menu() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -82,12 +82,8 @@ public class MainMenu {
 		//Event when toy click Start Button
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
-				Players player1=new Players (MainMenu.player1,"blue");
-				Players player2=new Players (MainMenu.player2,"green");
-				Players player3=new Players (MainMenu.player3,"yellow");
-				Players player4=new Players (MainMenu.player4,"red");
-				Map.main(args);
+				Map.map();
+				GameApp.initializePlayers();
 			}
 		});
 		
@@ -166,24 +162,24 @@ public class MainMenu {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(Input1.getText().equals("")) {
-					player1="Emperor of Macedonia"; // The Default name
+					playerName1="Emperor of Macedonia"; // The Default name
 				}else {
-					player1=Input1.getText(); // The Input Name
+					playerName1=Input1.getText(); // The Input Name
 				}
 				if(Input2.getText().equals("")) {
-					player2="Emperor of Rome";
+					playerName2="Emperor of Rome";
 				}else {
-					player2=Input2.getText();
+					playerName2=Input2.getText();
 				}
 				if(Input3.getText().equals("")) {
-					player3="Emperor of Egypt";
+					playerName3="Emperor of Egypt";
 				}else {
-					player3=Input3.getText();
+					playerName3=Input3.getText();
 				}
 				if(Input4.getText().equals("")) {
-					player4="Emperor of Persia";
+					playerName4="Emperor of Persia";
 				}else {
-					player4=Input4.getText();
+					playerName4=Input4.getText();
 				}
 			}
 		});
@@ -194,5 +190,6 @@ public class MainMenu {
 		lblNewLabel_3.setIcon(new ImageIcon(img));
 		lblNewLabel_3.setBounds(0, 0, 1266, 884);
 		frame.getContentPane().add(lblNewLabel_3);
+		
 	}
 }

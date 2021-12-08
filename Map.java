@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.DropMode;
 import javax.swing.ImageIcon;
@@ -13,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.Component;
+import javax.swing.JList;
+import javax.swing.JTextPane;
 
 public class Map {
 
@@ -22,12 +25,12 @@ public class Map {
 	private JTextField txtEmpireOfRome;
 	private JTextField txtEmpireOfEgypt;
 	private JTextField txtEmpireOfMacedonia;
-	private JTextField outputPanel;
+	static ArrayList <String> chat= new ArrayList<String>();
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void map() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -62,123 +65,129 @@ public class Map {
 		 */
 		
 		JButton SpartaButton = new JButton("3");
+		SpartaButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		SpartaButton.setBackground(new Color(51, 204, 255));
 		SpartaButton.setBounds(807, 125, 36, 28);
 		frame.getContentPane().add(SpartaButton);
 		
 		JButton BabylonButton = new JButton("3");
+		BabylonButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		BabylonButton.setBackground(new Color(255, 0, 0));
 		BabylonButton.setBounds(862, 250, 36, 28);
 		frame.getContentPane().add(BabylonButton);
 		
 		JButton RomeButton = new JButton("3");
+		RomeButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		RomeButton.setBackground(new Color(255, 255, 0));
 		RomeButton.setBounds(843, 361, 36, 28);
 		frame.getContentPane().add(RomeButton);
 		
 		JButton RavennaButton = new JButton("3");
+		RavennaButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		RavennaButton.setBackground(new Color(255, 255, 0));
 		RavennaButton.setBounds(521, 199, 36, 28);
 		frame.getContentPane().add(RavennaButton);
 		
 		JButton AlexandriaButton = new JButton("3");
+		AlexandriaButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		AlexandriaButton.setBackground(Color.GREEN);
 		AlexandriaButton.setBounds(535, 389, 36, 28);
 		frame.getContentPane().add(AlexandriaButton);
 		
 		JButton ThinisButton = new JButton("3");
+		ThinisButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		ThinisButton.setBackground(Color.GREEN);
 		ThinisButton.setBounds(862, 171, 36, 28);
 		frame.getContentPane().add(ThinisButton);
 		
 		JButton CorinthButton = new JButton("3");
+		CorinthButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		CorinthButton.setBackground(new Color(51, 204, 255));
 		CorinthButton.setBounds(961, 267, 36, 28);
 		frame.getContentPane().add(CorinthButton);
 		
 		JButton SusaButton = new JButton("3");
+		SusaButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		SusaButton.setBackground(new Color(255, 0, 0));
 		SusaButton.setBounds(483, 267, 36, 28);
 		frame.getContentPane().add(SusaButton);
 		
 		JButton TanisButton = new JButton("3");
+		TanisButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		TanisButton.setBackground(Color.GREEN);
 		TanisButton.setBounds(619, 518, 36, 28);
 		frame.getContentPane().add(TanisButton);
 		
 		JButton AvarisButton = new JButton("3");
+		AvarisButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		AvarisButton.setBackground(Color.GREEN);
 		AvarisButton.setBounds(619, 149, 36, 28);
 		frame.getContentPane().add(AvarisButton);
 		
 		JButton SicilyButton = new JButton("3");
+		SicilyButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		SicilyButton.setBackground(new Color(255, 255, 0));
 		SicilyButton.setBounds(494, 475, 36, 28);
 		frame.getContentPane().add(SicilyButton);
 		
 		JButton FlorenceButton = new JButton("3");
+		FlorenceButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		FlorenceButton.setBackground(new Color(255, 255, 0));
 		FlorenceButton.setBounds(739, 125, 36, 28);
 		frame.getContentPane().add(FlorenceButton);
 		
 		JButton SardiniaButton = new JButton("3");
+		SardiniaButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		SardiniaButton.setBackground(new Color(255, 255, 0));
 		SardiniaButton.setBounds(1122, 361, 36, 28);
 		frame.getContentPane().add(SardiniaButton);
 		
 		JButton CreteButton = new JButton("3");
+		CreteButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		CreteButton.setBackground(new Color(51, 204, 255));
 		CreteButton.setBounds(1122, 434, 36, 28);
 		frame.getContentPane().add(CreteButton);
 		
 		JButton AthensButton = new JButton("3");
+		AthensButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		AthensButton.setBackground(new Color(51, 204, 255));
 		AthensButton.setBounds(521, 546, 36, 28);
 		frame.getContentPane().add(AthensButton);
 		
 		JButton PersepolisButton = new JButton("3");
+		PersepolisButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		PersepolisButton.setBackground(new Color(255, 0, 0));
 		PersepolisButton.setBounds(717, 434, 36, 28);
 		frame.getContentPane().add(PersepolisButton);
 		
 		JButton NinevehButton = new JButton("3");
+		NinevehButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		NinevehButton.setBackground(new Color(255, 0, 0));
 		NinevehButton.setBounds(1059, 348, 36, 28);
 		frame.getContentPane().add(NinevehButton);
 		
 		JButton MemphisButton = new JButton("3");
+		MemphisButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		MemphisButton.setBackground(Color.GREEN);
 		MemphisButton.setBounds(961, 338, 36, 28);
 		frame.getContentPane().add(MemphisButton);
 		
 		JButton AshulButton = new JButton("3");
+		AshulButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		AshulButton.setBackground(new Color(255, 0, 0));
 		AshulButton.setBounds(936, 378, 36, 28);
 		frame.getContentPane().add(AshulButton);
 		
 		JButton MacedoniaButton = new JButton("3");
+		MacedoniaButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		MacedoniaButton.setBackground(new Color(51, 204, 255));
 		MacedoniaButton.setBounds(693, 267, 36, 28);
 		frame.getContentPane().add(MacedoniaButton);
 		
-		/*
-		 * outputPanel prints the commands of user and other informations
-		 */
-
-		outputPanel = new JTextField();
-		outputPanel.setFont(new Font("Segoe Print", Font.PLAIN, 20));
-		outputPanel.setAlignmentY(Component.TOP_ALIGNMENT);
-		outputPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
-		outputPanel.setColumns(10);
-		outputPanel.setHorizontalAlignment(SwingConstants.LEFT);
-		outputPanel.setBackground(Color.WHITE);
+		JTextPane outputPanel = new JTextPane();
 		outputPanel.setEditable(false);
-		outputPanel.setBounds(0, 6, 367, 595);
+		outputPanel.setBounds(0, 6, 363, 592);
 		frame.getContentPane().add(outputPanel);
-		
-		/*
-		 * inputPanel is where the user is typing
-		 */
 		
 		inputPanel = new JTextField();
 		inputPanel.setFont(new Font("SansSerif", Font.PLAIN, 20));
@@ -190,7 +199,7 @@ public class Map {
 		SendButton.setFont(new Font("SansSerif", Font.PLAIN, 23));
 		SendButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				outputPanel.setText(inputPanel.getText());
+				outputPanel.setText(chat);
 			}
 		});
 		SendButton.setBounds(268, 613, 99, 46);
@@ -200,7 +209,7 @@ public class Map {
 		 * The Map as a png file
 		 */
 		
-		JLabel lblNewLabel = new JLabel("BG");
+		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(383, 12, 927, 647); //
 		frame.getContentPane().add(lblNewLabel);
 		Image img = new ImageIcon(this.getClass().getResource("Map.png")).getImage();
@@ -246,8 +255,6 @@ public class Map {
 		txtEmpireOfMacedonia.setBounds(1111, 529, 174, 28);
 		frame.getContentPane().add(txtEmpireOfMacedonia);
 		
-			
-		
-			
+					
 	}
 }
