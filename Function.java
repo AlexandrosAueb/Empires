@@ -185,16 +185,20 @@ public class Function {
 					}
 					flag = true;
 					while (flag) { // Check valid input
-						answerS = keyboard.nextLine();
-						for (counter = 0; counter <= fortifyBorders.size(); counter++) {
-							if (answerS.equals(fortifyBorders.get(counter))) {
-								flag = false;
-								break;
+						try {
+							answerS = keyboard.nextLine();
+							for (counter = 0; counter <= fortifyBorders.size(); counter++) {
+								if (answerS.equals(fortifyBorders.get(counter))) {
+									flag = false;
+									break;
+								}
 							}
-						}
-
-						if (flag == true) {
-							System.out.println("Region not found, please try again..."); // Wrong input message
+	
+							if (flag == true) {
+								System.out.println("Region not found, please try again..."); // Wrong input message
+							}
+						} catch (IndexOutOfBoundsException e) {
+							System.out.print("");
 						}
 					}
 
@@ -330,13 +334,13 @@ public class Function {
 		try {
 			do {
 				answerI = keyboard.nextInt();
-				if (answerI <= GameApp.tabler[f1].getRegionSoldiers() - 1) {
+				if (answerI <= GameApp.tabler[f1].getRegionSoldiers() - 1 && answerI>0) {
 					GameApp.tabler[f1].setRegionSoldiers(GameApp.tabler[f1].getRegionSoldiers() - answerI);
 					GameApp.tabler[f2].setRegionSoldiers(GameApp.tabler[f2].getRegionSoldiers() + answerI);
 					break;
 				} else {
 					System.out.println(
-							"Wrong input : number of soldiers must be greater than 1 and less or equal to " + answerI);
+							"Wrong input : number of soldiers must be at least 1 and less or equal to " + (GameApp.tabler[f1].getRegionSoldiers() - 1));
 					System.out.println("Please try again..."); // Wrong input message
 				}
 			} while (true);
