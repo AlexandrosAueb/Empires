@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Function {
-
+	static String ras;
 	static Scanner keyboard = new Scanner(System.in); // Used to get input from players
 
 	public static void gameStart() { // Starts the game with round 1 //
@@ -12,7 +12,7 @@ public class Function {
 		Color tempColor = null; // Used for saving player's color //
 		Color fcolor = null; // Used for saving fortifying region's color //
 		Color defenderColor = null; // Used for saving defender's color //
-		String ras = null; // Used for saving attacker's Region (String) //
+		//String ras=null; // Used for saving attacker's Region (String) //
 		String rds = null; // Used for saving defender's Region (String) //
 		String answerS = null; // Used for String answers//
 
@@ -74,17 +74,19 @@ public class Function {
 					}
 					flag = true;
 					while (flag) { // Check valid input
-						
-						ras = keyboard.nextLine();
-						for (counter = 0; counter <= alliedStates.size(); counter++) {
-							if (ras.equals(alliedStates.get(counter))) {
-								flag = false;
-								break;
-							} else {
-								System.out.println("Region not found, please try again..."); // Wrong input message
+						try {
+							String ras = keyboard.nextLine();
+							for (counter = 0; counter <= alliedStates.size(); counter++) {
+								if (ras.equals(alliedStates.get(counter))) {
+									flag = false;
+									break;
+								} else {
+									System.out.println("Region not found, please try again..."); // Wrong input message
+								}
 							}
+						} catch (IndexOutOfBoundsException e) {
+							System.out.print("");
 						}
-						
 					}
 
 					for (counter = 0; counter <= 19; counter++) {
@@ -132,15 +134,19 @@ public class Function {
 					System.out.println(alliedStates);
 					flag = true;
 					while (flag) { // Check valid input
-						answerS = keyboard.nextLine();
-						for (counter = 0; counter <= alliedStates.size(); counter++) {
-							if (answerS.equals(alliedStates.get(counter))) {
-								flag = false;
-								break;
+						try {
+							answerS = keyboard.nextLine();
+							for (counter = 0; counter <= alliedStates.size(); counter++) {
+								if (answerS.equals(alliedStates.get(counter))) {
+									flag = false;
+									break;
+								}
 							}
-						}
-						if (flag == true) {
-							System.out.println("Region not found, please try again..."); // Wrong input message
+							if (flag == true) {
+								System.out.println("Region not found, please try again..."); // Wrong input message
+							}
+						} catch (IndexOutOfBoundsException e) {
+							System.out.print("");
 						}
 					}
 
@@ -158,18 +164,22 @@ public class Function {
 					fcolor = GameApp.tabler[f1].getRegionColor();
 					for (counter = 0; counter <= frtfBrds.size(); counter++) { // Accessing ArrayList frtfBrds
 						for (counter2 = 0; counter2 <= 19; counter2++) { // Accessing Array tabler[]
-							if (GameApp.tabler[counter2].getRegionName().equals(frtfBrds.get(counter))) { // Name in
-																											// Array
-																											// matches
-																											// with name
-																											// in
-																											// ArrayList
-								if (fcolor.equals(GameApp.tabler[counter2].getRegionColor())) { // Color in ArrayList
-																								// matches color in
-																								// Array
-									System.out.print(frtfBrds.get(counter) + " ");
-									fortifyBorders.add(frtfBrds.get(counter));
+							try {
+								if (GameApp.tabler[counter2].getRegionName().equals(frtfBrds.get(counter))) { // Name in
+																												// Array
+																												// matches
+																												// with name
+																												// in
+																												// ArrayList
+									if (fcolor.equals(GameApp.tabler[counter2].getRegionColor())) { // Color in ArrayList
+																									// matches color in
+																									// Array
+										System.out.print(frtfBrds.get(counter) + " ");
+										fortifyBorders.add(frtfBrds.get(counter));
+									}
 								}
+							} catch (IndexOutOfBoundsException e) {
+								System.out.print("");
 							}
 						}
 					}
@@ -217,9 +227,9 @@ public class Function {
 		boolean flag = true; // Used for while{} loop //
 		String answerS = null; // Used for String answers //
 		while (s != 0) {
-			System.out.println(alliedStates);
-			System.out.println("Where would you like to place your soldiers ? ");
 			System.out.println("Remaining soldiers to place : " + s);
+			System.out.println("This is your Regions: "+ alliedStates);
+			System.out.println("Where would you like to place your soldiers ? ");
 			flag = true;
 			while (flag) { // Check valid input
 				try {
@@ -317,18 +327,22 @@ public class Function {
 
 		System.out.println("How many soldiers do you want to move ?");
 		int answerI;
-		do {
-			answerI = keyboard.nextInt();
-			if (answerI <= GameApp.tabler[f1].getRegionSoldiers() - 1) {
-				GameApp.tabler[f1].setRegionSoldiers(GameApp.tabler[f1].getRegionSoldiers() - answerI);
-				GameApp.tabler[f2].setRegionSoldiers(GameApp.tabler[f2].getRegionSoldiers() + answerI);
-				break;
-			} else {
-				System.out.println(
-						"Wrong input : number of soldiers must be greater than 1 and less or equal to " + answerI);
-				System.out.println("Please try again..."); // Wrong input message
-			}
-		} while (true);
+		try {
+			do {
+				answerI = keyboard.nextInt();
+				if (answerI <= GameApp.tabler[f1].getRegionSoldiers() - 1) {
+					GameApp.tabler[f1].setRegionSoldiers(GameApp.tabler[f1].getRegionSoldiers() - answerI);
+					GameApp.tabler[f2].setRegionSoldiers(GameApp.tabler[f2].getRegionSoldiers() + answerI);
+					break;
+				} else {
+					System.out.println(
+							"Wrong input : number of soldiers must be greater than 1 and less or equal to " + answerI);
+					System.out.println("Please try again..."); // Wrong input message
+				}
+			} while (true);
+		} catch (IndexOutOfBoundsException e){
+			System.out.print("");
+		}
 	} // End of fortify()
 
 	public static void skip(int j) {
