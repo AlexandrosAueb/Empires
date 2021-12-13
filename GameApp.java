@@ -73,6 +73,43 @@ public class GameApp {
 		br9.add("Thinis");
 		br10.add("Crete");
 		br10.add("Nineveh");
+		br11.add("Sparta");
+		br11.add("Florence");
+		br11.add("Macedonia");
+		br11.add("Babylon");
+		br12.add("Athens");
+		br12.add("Sicily");
+		br12.add("Persepolis");
+		br13.add("Susa");
+		br13.add("Sicily");
+		br13.add("Persepolis");
+		br13.add("Macedonia");
+		br14.add("Ravenna");
+		br14.add("Macedonia");
+		br14.add("Florence");
+		br15.add("Babylon");
+		br15.add("Rome");
+		br15.add("Ashur");
+		br15.add("Nineveh");
+		br15.add("Corinth");
+		br16.add("Memphis");
+		br16.add("Sardinia");
+		br16.add("Crete");
+		br17.add("Ravenna");
+		br17.add("Macedonia");
+		br17.add("Alexandria");
+		br18.add("Rome");
+		br18.add("Memphis");
+		br19.add("Tanis");
+		br19.add("Sicily");
+		br19.add("Alexandria");
+		br19.add("Macedonia");
+		br19.add("Rome");
+		br20.add("Thinis");
+		br20.add("Macedonia");
+		br20.add("Rome");
+		br20.add("Memphis");
+		br20.add("Corinth");
 	}
 	
 	//Create Region Objects
