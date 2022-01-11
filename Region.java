@@ -49,7 +49,6 @@ public class Region {
 
 	@Override
 	public String toString() {
-		return "Region [regionName=" + regionName + ", regionSoldiers=" + regionSoldiers + ", regionColor="
-				+ regionColor + ", borders=" + borders + "]";
+		return "Welcome to " + regionName + ". Soldiers :" + regionSoldiers;
 	}			
 }

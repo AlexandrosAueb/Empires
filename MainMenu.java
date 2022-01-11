@@ -1,23 +1,19 @@
+import java.awt.Color;
 import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Image;
-import javax.swing.SwingConstants;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.Button;
-import java.awt.Color;
-import javax.swing.JMenu;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.JToggleButton;
-import javax.swing.JFormattedTextField;
 import javax.swing.JTextPane;
-import java.awt.SystemColor;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
-public class MainMenu {
+public class MainMenu implements Runnable{
 
 	public static String playerName1="Player 1";
 	public static String playerName2="Player 2";
@@ -62,9 +58,9 @@ public class MainMenu {
 		frame.getContentPane().setBackground(new Color(222, 184, 135));
 		frame.setBackground(Color.LIGHT_GRAY);
 		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 25));
-		frame.setBounds(100, 100, 1228 , 826);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setBounds(140, 0, 1270, 850);
 		
 		//Title
 		JLabel lblNewLabel = new JLabel("The Divided Empires");
@@ -82,8 +78,10 @@ public class MainMenu {
 		//Event when toy click Start Button
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Map.map();
 				GameApp.initializePlayers();
+				frame.dispose();
+				Map.map();
+				
 			}
 		});
 		
@@ -148,7 +146,7 @@ public class MainMenu {
 		Story.setEditable(false);
 		Story.setBackground(new Color(0, 0, 0,0));
 		Story.setFont(new Font("Harrington", Font.BOLD, 25));
-		Story.setText("Welcome to 322 B.C.\r\n\r\nThe king of Macedonia Alexander led the Greeks in a successful campaign to overthrow the Persian & Egypt Empires. After Alexander's death in 323, his successors divided his empire into several kingdoms. Greek culture became widespread in the territories of these kingdoms and, after their conquest by Rome, in many parts of the Roman Empire . Do you believe you are capable of leading your army and conquer the other Empires?\r\n~Good Luck, Have Fun~\r\n");
+		Story.setText("Welcome to 322 B.C.\r\n\r\nThe king of Macedonia Alexander The Great led the Greeks in a successful campaign to overthrow the Persian & Egypt Empires. After Alexander's death in 323 B.C., his successors divided his empire into several kingdoms. Greek culture became widespread in the territories of these kingdoms and, after their conquest by Rome, in many parts of the Roman Empire . Do you believe you are capable of leading your army and conquer the other Empires?\r\n~Good Luck, Have Fun~\r\n");
 		Story.setBounds(252, 126, 798, 325);
 		frame.getContentPane().add(Story);
 		
@@ -190,6 +188,13 @@ public class MainMenu {
 		lblNewLabel_3.setIcon(new ImageIcon(img));
 		lblNewLabel_3.setBounds(0, 0, 1266, 884);
 		frame.getContentPane().add(lblNewLabel_3);
+		
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		Function.gameStart();
 		
 	}
 }

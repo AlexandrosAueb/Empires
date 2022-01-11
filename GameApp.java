@@ -1,7 +1,9 @@
 import java.awt.Color;
-import java.util.*;
+import java.util.ArrayList;
+
 public class GameApp {
-		
+	public static int mapFlag = 0;
+
 	static ArrayList<String> br1 = new ArrayList<String>();
 	static ArrayList<String> br2 = new ArrayList<String>();
 	static ArrayList<String> br3 = new ArrayList<String>();
@@ -14,30 +16,30 @@ public class GameApp {
 	static ArrayList<String> br10 = new ArrayList<String>();
 	static ArrayList<String> br11 = new ArrayList<String>();
 	static ArrayList<String> br12 = new ArrayList<String>();
-	static ArrayList<String> br13 = new ArrayList<String>();	
+	static ArrayList<String> br13 = new ArrayList<String>();
 	static ArrayList<String> br14 = new ArrayList<String>();
 	static ArrayList<String> br15 = new ArrayList<String>();
-	static ArrayList<String> br16 = new ArrayList<String>();	
+	static ArrayList<String> br16 = new ArrayList<String>();
 	static ArrayList<String> br17 = new ArrayList<String>();
 	static ArrayList<String> br18 = new ArrayList<String>();
 	static ArrayList<String> br19 = new ArrayList<String>();
 	static ArrayList<String> br20 = new ArrayList<String>();
-	
+
 	// Easy variables for colors
-	static Color blue = new Color(51, 204, 255);  
+	static Color blue = new Color(51, 204, 255);
 	static Color green = new Color(102, 255, 51);
 	static Color yellow = new Color(255, 255, 51);
 	static Color red = new Color(255, 51, 0);
-	
+
 	public static Player p1;
 	public static Player p2;
 	public static Player p3;
 	public static Player p4;
-	public static Player[] tablep = {p1,p2,p3,p4};
-	
+	public static Player[] tablep = { p1, p2, p3, p4 };
+
 	public static void borderPlacing() {
-		
-		//for each region creates an array list with borders
+
+		// for each region creates an array list with borders
 		br1.add("Sicily");
 		br1.add("Tanis");
 		br2.add("Florence");
@@ -110,55 +112,54 @@ public class GameApp {
 		br20.add("Rome");
 		br20.add("Memphis");
 		br20.add("Corinth");
+
 	}
-	
-	//Create Region Objects
+
+	// Create Region Objects
 	static Region r1 = new Region("Athens", 3, blue, br1);
-	static Region r2 = new Region("Sparta", 5, red, br2);
-	static Region r3 = new Region("Corinth", 3, green, br3);
-	static Region r4 = new Region("Crete", 4, yellow, br4);
+	static Region r2 = new Region("Sparta", 5, blue, br2);
+	static Region r3 = new Region("Corinth", 3, blue, br3);
+	static Region r4 = new Region("Crete", 4, blue, br4);
 	static Region r5 = new Region("Macedonia", 4, blue, br5);
-	static Region r6 = new Region("Rome", 6, red, br6);
-	static Region r7 = new Region("Ravenna", 3, green, br7);
+	static Region r6 = new Region("Rome", 6, yellow, br6);
+	static Region r7 = new Region("Ravenna", 3, yellow, br7);
 	static Region r8 = new Region("Sicily", 2, yellow, br8);
-	static Region r9 = new Region("Florence", 4, blue, br9);
-	static Region r10 = new Region("Sardinia", 2, red, br10);
+	static Region r9 = new Region("Florence", 4, yellow, br9);
+	static Region r10 = new Region("Sardinia", 2, yellow, br10);
 	static Region r11 = new Region("Thinis", 4, green, br11);
-	static Region r12 = new Region("Tanis", 7, yellow, br12);
-	static Region r13 = new Region("Alexandria", 7, blue, br13);
-	static Region r14 = new Region("Avaris", 4, red, br14);
+	static Region r12 = new Region("Tanis", 7, green, br12);
+	static Region r13 = new Region("Alexandria", 7, green, br13);
+	static Region r14 = new Region("Avaris", 4, green, br14);
 	static Region r15 = new Region("Memphis", 3, green, br15);
-	static Region r16 = new Region("Nineveh", 5, yellow, br16);
-	static Region r17 = new Region("Susa", 2, blue, br17);
+	static Region r16 = new Region("Nineveh", 5, red, br16);
+	static Region r17 = new Region("Susa", 2, red, br17);
 	static Region r18 = new Region("Ashur", 3, red, br18);
-	static Region r19 = new Region("Persepolis", 7, green, br19);
-	static Region r20 = new Region("Babylon", 2, yellow, br20);
-	
-	//Create Table with Regions
-	static Region[] tabler = {	r1, r2, r3, r4, r5,
-					r6, r7, r8, r9, r10,
-					r11, r12, r13, r14, r15,
-					r16, r17, r18, r19, r20 };
-	
+	static Region r19 = new Region("Persepolis", 7, red, br19);
+	static Region r20 = new Region("Babylon", 2, red, br20);
+
+	// Create Table with Regions
+	static Region[] tabler = { r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16, r17, r18, r19,
+			r20 };
+
 	// Creates Player Objects
-	public static void initializePlayers(){
+	public static void initializePlayers() {
 		p1 = new Player(MainMenu.playerName1, blue, 20, 5);
 		p2 = new Player(MainMenu.playerName2, green, 20, 5);
 		p3 = new Player(MainMenu.playerName3, yellow, 20, 5);
 		p4 = new Player(MainMenu.playerName4, red, 20, 5);
 
-		//Create Table with players
+		// Create Table with players
 		tablep[0] = p1;
 		tablep[1] = p2;
 		tablep[2] = p3;
 		tablep[3] = p4;
+
 		
-		//Starts the Game Functions
-		Function.gameStart();
 	}
-		
+
 	public static void main(String[] args) {
 		MainMenu.menu(); // opens Main Menu window
-		GameApp.borderPlacing(); //for each region creates an array list with borders
-	}	
+		borderPlacing(); // for each region creates an array list with borders
+		Function.gameStart();
+	}
 }
