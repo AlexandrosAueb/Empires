@@ -158,8 +158,8 @@ public class GameApp {
 	}
 
 	public static void main(String[] args) {
-		MainMenu.menu(); // opens Main Menu window
 		borderPlacing(); // for each region creates an array list with borders
-		Function.gameStart();
+		MainMenu.menu(); // opens Main Menu window
+		
 	}
 }

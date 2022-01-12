@@ -81,6 +81,7 @@ public class MainMenu implements Runnable{
 				GameApp.initializePlayers();
 				frame.dispose();
 				Map.map();
+				ReadyDialog.ready();
 				
 			}
 		});
