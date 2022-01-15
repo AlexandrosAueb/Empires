@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 
-public class MainMenu implements Runnable{
+public class MainMenu {
 
 	public static String playerName1="Player 1";
 	public static String playerName2="Player 2";
@@ -81,8 +81,7 @@ public class MainMenu implements Runnable{
 				GameApp.initializePlayers();
 				frame.dispose();
 				Map.map();
-				ReadyDialog.ready();
-				
+				//Function.gameStart();
 			}
 		});
 		
@@ -189,13 +188,6 @@ public class MainMenu implements Runnable{
 		lblNewLabel_3.setIcon(new ImageIcon(img));
 		lblNewLabel_3.setBounds(0, 0, 1266, 884);
 		frame.getContentPane().add(lblNewLabel_3);
-		
-	}
-
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		Function.gameStart();
 		
 	}
 }

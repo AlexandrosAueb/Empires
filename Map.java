@@ -14,9 +14,7 @@ import javax.swing.SwingConstants;
 
 public class Map {
 
-	private JFrame frame;
-	static JTextField inputPanel;
-	static JTextArea outputPanel;
+	private static JFrame frame;
 	static String infoText;
 	static String playerInput;
 
@@ -46,11 +44,11 @@ public class Map {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	public void initialize() {
 		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.setBounds(0, 0, 1554, 830);
+		frame.setBounds(0, 0, 1001, 850);
 		
 		/*
 		 * Creates the Buttons takes as parameter the number of warriors takes the color
@@ -66,7 +64,7 @@ public class Map {
 		});
 		SpartaButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		SpartaButton.setBackground(new Color(51, 204, 255));
-		SpartaButton.setBounds(938, 143, 46, 36);
+		SpartaButton.setBounds(509, 148, 46, 36);
 		frame.getContentPane().add(SpartaButton);
 
 		JButton BabylonButton = new JButton(String.valueOf(GameApp.r20.getRegionSoldiers()));
@@ -78,7 +76,7 @@ public class Map {
 		});
 		BabylonButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		BabylonButton.setBackground(new Color(255, 0, 0));
-		BabylonButton.setBounds(1005, 321, 46, 36);
+		BabylonButton.setBounds(576, 326, 46, 36);
 		frame.getContentPane().add(BabylonButton);
 
 		JButton RomeButton = new JButton(String.valueOf(GameApp.r6.getRegionSoldiers()));
@@ -90,19 +88,19 @@ public class Map {
 		});
 		RomeButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		RomeButton.setBackground(new Color(255, 255, 0));
-		RomeButton.setBounds(966, 466, 46, 36);
+		RomeButton.setBounds(537, 471, 46, 36);
 		frame.getContentPane().add(RomeButton);
 
 		JButton RavennaButton = new JButton(String.valueOf(GameApp.r7.getRegionSoldiers()));
 		RavennaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				infoText="Ravenna \n Soldiers: "+ GameApp.r7.getRegionSoldiers()+".";
+				infoText="The origins of Ravenna are uncertain. However, the oldest archaeological evidence found allows us to date the presence of Ravenna at least to the 5th century BC, where they remained undisturbed until the 3rd century BC, when the first contacts with Roman civilization began to take place. Later in history, Ravenna became the capital of the West Roman Empire after the transference of Rome to the East. Ravenna had been the host of the exiled poet named Dante, who is widely considered one of the most important poets of the Middle Ages. ";
 				RegionInfo.InfoDialog();
 			}
 		});
 		RavennaButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		RavennaButton.setBackground(new Color(255, 255, 0));
-		RavennaButton.setBounds(575, 232, 46, 36);
+		RavennaButton.setBounds(146, 237, 46, 36);
 		frame.getContentPane().add(RavennaButton);
 
 		JButton AlexandriaButton = new JButton(String.valueOf(GameApp.r13.getRegionSoldiers()));
@@ -114,7 +112,7 @@ public class Map {
 		});
 		AlexandriaButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		AlexandriaButton.setBackground(Color.GREEN);
-		AlexandriaButton.setBounds(597, 489, 46, 36);
+		AlexandriaButton.setBounds(168, 494, 46, 36);
 		frame.getContentPane().add(AlexandriaButton);
 
 		JButton ThinisButton = new JButton(String.valueOf(GameApp.r11.getRegionSoldiers()));
@@ -126,7 +124,7 @@ public class Map {
 		});
 		ThinisButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		ThinisButton.setBackground(Color.GREEN);
-		ThinisButton.setBounds(984, 202, 46, 36);
+		ThinisButton.setBounds(555, 207, 46, 36);
 		frame.getContentPane().add(ThinisButton);
 
 		JButton CorinthButton = new JButton(String.valueOf(GameApp.r3.getRegionSoldiers()));
@@ -138,7 +136,7 @@ public class Map {
 		});
 		CorinthButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		CorinthButton.setBackground(new Color(51, 204, 255));
-		CorinthButton.setBounds(1128, 334, 46, 36);
+		CorinthButton.setBounds(699, 339, 46, 36);
 		frame.getContentPane().add(CorinthButton);
 
 		JButton SusaButton = new JButton(String.valueOf(GameApp.r17.getRegionSoldiers()));
@@ -150,7 +148,7 @@ public class Map {
 		});
 		SusaButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		SusaButton.setBackground(new Color(255, 0, 0));
-		SusaButton.setBounds(530, 334, 46, 36);
+		SusaButton.setBounds(101, 339, 46, 36);
 		frame.getContentPane().add(SusaButton);
 
 		JButton TanisButton = new JButton(String.valueOf(GameApp.r12.getRegionSoldiers()));
@@ -162,7 +160,7 @@ public class Map {
 		});
 		TanisButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		TanisButton.setBackground(Color.GREEN);
-		TanisButton.setBounds(693, 671, 46, 36);
+		TanisButton.setBounds(264, 676, 46, 36);
 		frame.getContentPane().add(TanisButton);
 
 		JButton AvarisButton = new JButton(String.valueOf(GameApp.r14.getRegionSoldiers()));
@@ -174,7 +172,7 @@ public class Map {
 		});
 		AvarisButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		AvarisButton.setBackground(Color.GREEN);
-		AvarisButton.setBounds(693, 173, 46, 36);
+		AvarisButton.setBounds(264, 178, 46, 36);
 		frame.getContentPane().add(AvarisButton);
 
 		JButton SicilyButton = new JButton(String.valueOf(GameApp.r8.getRegionSoldiers()));
@@ -186,7 +184,7 @@ public class Map {
 		});
 		SicilyButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		SicilyButton.setBackground(new Color(255, 255, 0));
-		SicilyButton.setBounds(575, 600, 46, 36);
+		SicilyButton.setBounds(146, 605, 46, 36);
 		frame.getContentPane().add(SicilyButton);
 
 		JButton FlorenceButton = new JButton(String.valueOf(GameApp.r9.getRegionSoldiers()));
@@ -198,7 +196,7 @@ public class Map {
 		});
 		FlorenceButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		FlorenceButton.setBackground(new Color(255, 255, 0));
-		FlorenceButton.setBounds(838, 154, 46, 36);
+		FlorenceButton.setBounds(409, 159, 46, 36);
 		frame.getContentPane().add(FlorenceButton);
 
 		JButton SardiniaButton = new JButton(String.valueOf(GameApp.r10.getRegionSoldiers()));
@@ -210,7 +208,7 @@ public class Map {
 		});
 		SardiniaButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		SardiniaButton.setBackground(new Color(255, 255, 0));
-		SardiniaButton.setBounds(1312, 466, 46, 36);
+		SardiniaButton.setBounds(883, 471, 46, 36);
 		frame.getContentPane().add(SardiniaButton);
 
 		JButton CreteButton = new JButton(String.valueOf(GameApp.r4.getRegionSoldiers()));
@@ -222,7 +220,7 @@ public class Map {
 		});
 		CreteButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		CreteButton.setBackground(new Color(51, 204, 255));
-		CreteButton.setBounds(1322, 552, 46, 36);
+		CreteButton.setBounds(893, 557, 46, 36);
 		frame.getContentPane().add(CreteButton);
 
 		JButton AthensButton = new JButton(String.valueOf(GameApp.r1.getRegionSoldiers()));
@@ -234,7 +232,7 @@ public class Map {
 		});
 		AthensButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		AthensButton.setBackground(new Color(51, 204, 255));
-		AthensButton.setBounds(575, 704, 46, 36);
+		AthensButton.setBounds(146, 709, 46, 36);
 		frame.getContentPane().add(AthensButton);
 
 		JButton PersepolisButton = new JButton(String.valueOf(GameApp.r19.getRegionSoldiers()));
@@ -246,7 +244,7 @@ public class Map {
 		});
 		PersepolisButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		PersepolisButton.setBackground(new Color(255, 0, 0));
-		PersepolisButton.setBounds(821, 552, 46, 36);
+		PersepolisButton.setBounds(392, 557, 46, 36);
 		frame.getContentPane().add(PersepolisButton);
 
 		JButton NinevehButton = new JButton(String.valueOf(GameApp.r16.getRegionSoldiers()));
@@ -258,7 +256,7 @@ public class Map {
 		});
 		NinevehButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		NinevehButton.setBackground(new Color(255, 0, 0));
-		NinevehButton.setBounds(1243, 445, 46, 36);
+		NinevehButton.setBounds(814, 450, 46, 36);
 		frame.getContentPane().add(NinevehButton);
 
 		JButton MemphisButton = new JButton(String.valueOf(GameApp.r15.getRegionSoldiers()));
@@ -270,7 +268,7 @@ public class Map {
 		});
 		MemphisButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		MemphisButton.setBackground(Color.GREEN);
-		MemphisButton.setBounds(1128, 430, 46, 36);
+		MemphisButton.setBounds(699, 435, 46, 36);
 		frame.getContentPane().add(MemphisButton);
 
 		JButton AshulButton = new JButton(String.valueOf(GameApp.r18.getRegionSoldiers()));
@@ -282,7 +280,7 @@ public class Map {
 		});
 		AshulButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		AshulButton.setBackground(new Color(255, 0, 0));
-		AshulButton.setBounds(1083, 489, 46, 36);
+		AshulButton.setBounds(654, 494, 46, 36);
 		frame.getContentPane().add(AshulButton);
 
 		JButton MacedoniaButton = new JButton(String.valueOf(GameApp.r5.getRegionSoldiers()));
@@ -294,43 +292,15 @@ public class Map {
 		});
 		MacedoniaButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		MacedoniaButton.setBackground(new Color(51, 204, 255));
-		MacedoniaButton.setBounds(776, 334, 46, 36);
+		MacedoniaButton.setBounds(347, 339, 46, 36);
 		frame.getContentPane().add(MacedoniaButton);
-
-		outputPanel = new JTextArea();
-		outputPanel.setFont(new Font("SansSerif", Font.PLAIN, 16));
-		outputPanel.setEditable(false);
-		outputPanel.setBounds(0, 6, 402, 703);
-		frame.getContentPane().add(outputPanel);
-		outputPanel.setText("-----------------------------------------------------\n WELCOME TO DEVIDED EMPIRES\n-----------------------------------------------------\n");
-
-		inputPanel = new JTextField();
-		inputPanel.setFont(new Font("SansSerif", Font.PLAIN, 20));
-		inputPanel.setBounds(0, 722, 286, 67);
-		frame.getContentPane().add(inputPanel);
-		inputPanel.setColumns(10);
-
-		JButton SendButton = new JButton("Send");
-		SendButton.setFont(new Font("SansSerif", Font.PLAIN, 23));
-		SendButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				outputPanel.append(inputPanel.getText()+"\n");
-				playerInput = inputPanel.getText();
-				inputPanel.setText("");
-				frame.dispose();
-				map();
-				
-			}
-		});
-		SendButton.setBounds(291, 721, 111, 67);
-		frame.getContentPane().add(SendButton);
 
 		/*
 		 * The Map as a png file
 		 */
 
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(437, 6, 1124, 841); 
+		lblNewLabel.setBounds(5, 6, 1124, 841); 
 		frame.getContentPane().add(lblNewLabel);
 		Image img = new ImageIcon(this.getClass().getResource("GameMap.png")).getImage();
 		lblNewLabel.setIcon(new ImageIcon(img));
@@ -338,7 +308,7 @@ public class Map {
 		JButton PersiaButton = new JButton(GameApp.p4.getPlayerName());
 		PersiaButton.setBackground(GameApp.red);
 		PersiaButton.setFont(new Font("Georgia", Font.PLAIN, 16));
-		PersiaButton.setBounds(1352, 763, 182, 31);
+		PersiaButton.setBounds(665, 754, 182, 31);
 		frame.getContentPane().add(PersiaButton);
 		
 		JButton btnEmpireOfRome = new JButton(GameApp.p3.getPlayerName());
@@ -351,13 +321,13 @@ public class Map {
 		});
 		btnEmpireOfRome.setFont(new Font("Georgia", Font.PLAIN, 16));
 		btnEmpireOfRome.setBackground(GameApp.yellow);
-		btnEmpireOfRome.setBounds(1352, 717, 181, 36);
+		btnEmpireOfRome.setBounds(665, 708, 181, 36);
 		frame.getContentPane().add(btnEmpireOfRome);
 		
 		JButton btnEmpireOfEgypt = new JButton(GameApp.p2.getPlayerName());
 		btnEmpireOfEgypt.setFont(new Font("Georgia", Font.PLAIN, 16));
 		btnEmpireOfEgypt.setBackground(GameApp.green);
-		btnEmpireOfEgypt.setBounds(1352, 669, 181, 36);
+		btnEmpireOfEgypt.setBounds(665, 660, 181, 36);
 		frame.getContentPane().add(btnEmpireOfEgypt);
 		
 		JButton btnEmpireOfMacedonia = new JButton(GameApp.p1.getPlayerName());
@@ -369,15 +339,19 @@ public class Map {
 		});
 		btnEmpireOfMacedonia.setFont(new Font("Georgia", Font.PLAIN, 16));
 		btnEmpireOfMacedonia.setBackground(GameApp.blue);
-		btnEmpireOfMacedonia.setBounds(1352, 626, 182, 36);
+		btnEmpireOfMacedonia.setBounds(665, 617, 182, 36);
 		frame.getContentPane().add(btnEmpireOfMacedonia);
 		
-		JLabel rounds = new JLabel(String.valueOf("ROUND: "+Function.round));
+		JLabel rounds = new JLabel(String.valueOf("ROUND: "+Function.i));
 		rounds.setFont(new Font("Algerian", Font.PLAIN, 28));
 		rounds.setHorizontalAlignment(SwingConstants.CENTER);
-		rounds.setBounds(1331, 16, 203, 44);
+		rounds.setBounds(726, 25, 203, 44);
 		frame.getContentPane().add(rounds);
 		
 
+	}
+	public static void refresh() {
+		frame.dispose();
+		Map.map();
 	}
 }

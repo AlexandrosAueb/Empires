@@ -6,7 +6,8 @@ import java.util.Scanner;
 public class Function {
 
 	static Scanner keyboard = new Scanner(System.in); // Used to get input from players
-	public static int round;
+
+	public static int i;
 
 	public static void gameStart() { // Starts the game with round 1 //
 
@@ -36,10 +37,14 @@ public class Function {
 		ArrayList<String> fortifyBorders = new ArrayList<String>(); // Contains fortifying Region's borders with the
 																	// same color //
 
-		for (round = 1; round <= 50; round++) { // Round i
-			Map.outputPanel.append("Round " + round + "\n");
+		for (i = 1; i <= 50; i++) { // Round i
+			System.out.println("Round " + i + "\n");
 			for (int j = 0; j <= 3; j++) { // Player j
-
+				try {
+				Map.refresh();
+				} catch (Exception NullPointerException) {
+					Map.map();
+				}
 				tempColor = GameApp.tablep[j].getPlayerColor();
 				alliedStates.clear(); // Removes all elements
 				for (counter = 0; counter <= 19; counter++) {
@@ -68,14 +73,19 @@ public class Function {
 					}
 				}
 
-				Map.outputPanel.append(GameApp.tablep[j].getPlayerName() + " is your turn to play");
+				System.out.println(GameApp.tablep[j].getPlayerName() + " is your turn to play");
 				placeSoldiers(checkSoldiers(j), j, alliedStates);
+				try {
+					Map.refresh();
+					} catch (Exception NullPointerException) {
+						System.out.println("");
+					}
 				flag = true;
 				while (flag) { // Shows Menu at each round
-					Map.outputPanel.append("Choose your next move :");
-					Map.outputPanel.append("1. Attack");
-					Map.outputPanel.append("2. Fortify");
-					Map.outputPanel.append("3. Skip");
+					System.out.println("Choose your next move :");
+					System.out.println("1. Attack");
+					System.out.println("2. Fortify");
+					System.out.println("3. Skip");
 					answerI = keyboard.nextInt();
 					if (answerI == 1 || (answerI == 2 && allowedFortify.size() != 0) || answerI == 3) { // Check valid
 																										// input for the
@@ -84,9 +94,9 @@ public class Function {
 																										// fortify, skip
 						flag = false;
 					} else if (answerI == 2 && allowedFortify.size() == 0) {
-						Map.outputPanel.append("There is no region from where you can fortify soldiers");
+						System.out.println("There is no region from where you can fortify soldiers");
 					} else {
-						Map.outputPanel.append("Wrong input : Choose between options 1, 2 or 3, please try again..."); // Wrong
+						System.out.println("Wrong input : Choose between options 1, 2 or 3, please try again..."); // Wrong
 																													// input
 																													// message
 					}
@@ -94,8 +104,8 @@ public class Function {
 
 				if (answerI == 1) { // Option 1 : attack
 
-					Map.outputPanel.append("From where do you want to attack ?");
-					Map.outputPanel.append(String.valueOf(alliedStates));
+					System.out.println("From where do you want to attack ?");
+					System.out.println(alliedStates);
 
 					flag = true;
 					flagint = 0;
@@ -111,7 +121,7 @@ public class Function {
 						}
 						if (co != 0) {
 							if (flagint == 0) {
-								Map.outputPanel.append("Region not found, please try again..."); // Wrong input message
+								System.out.println("Region not found, please try again..."); // Wrong input message
 
 							}
 						}
@@ -125,10 +135,10 @@ public class Function {
 						}
 					}
 
-					Map.outputPanel.append("Where do you want to attack ?");
+					System.out.println("Where do you want to attack ?");
 					alliedBrds.clear(); // Removes all elements
 					alliedBrds = GameApp.tabler[ra].getBorders();
-					Map.outputPanel.append(String.valueOf(alliedBrds)); // Print borders of region tabler[ra]
+					System.out.println(alliedBrds); // Print borders of region tabler[ra]
 
 					flagint = 0;
 					flag = true;
@@ -145,7 +155,7 @@ public class Function {
 						}
 
 						if (flagint == 0) {
-							Map.outputPanel.append("Region not found, please try again..."); // Wrong input message
+							System.out.println("Region not found, please try again..."); // Wrong input message
 						}
 
 					}
@@ -165,8 +175,8 @@ public class Function {
 					}
 					attack(ra, rd, j, j2);
 				} else if (answerI == 2) { // Option 2 : fortify
-					Map.outputPanel.append("From where do you want to move soldiers ?");
-					Map.outputPanel.append(String.valueOf(allowedFortify));
+					System.out.println("From where do you want to move soldiers ?");
+					System.out.println(allowedFortify);
 					flagint = 0;
 					int co2 = 0;
 					flag = true;
@@ -180,7 +190,7 @@ public class Function {
 						}
 						if (co2 != 0) {
 							if (flagint == 0) {
-								Map.outputPanel.append("Region not found, please try again..."); // Wrong input message
+								System.out.println("Region not found, please try again..."); // Wrong input message
 							}
 						}
 						co2++;
@@ -193,7 +203,7 @@ public class Function {
 						}
 					}
 
-					Map.outputPanel.append("Where do you want to move your soldiers ?");
+					System.out.println("Where do you want to move your soldiers ?");
 					frtfBrds.clear(); // Removes all elements
 					fortifyBorders.clear(); // Removes all elements
 					frtfBrds = GameApp.tabler[f1].getBorders();
@@ -215,7 +225,7 @@ public class Function {
 							}
 						}
 					}
-					Map.outputPanel.append(String.valueOf(fortifyBorders));
+					System.out.println(fortifyBorders);
 					flag = true;
 					while (flag) { // Check valid input
 						answerS = keyboard.nextLine();
@@ -227,7 +237,7 @@ public class Function {
 						}
 
 						if (flag == true) {
-							Map.outputPanel.append("Region not found, please try again..."); // Wrong input message
+							System.out.println("Region not found, please try again..."); // Wrong input message
 						}
 					}
 
@@ -249,7 +259,7 @@ public class Function {
 	public static int checkSoldiers(int j) { // Gives soldiers to players depending on their regions' number
 
 		int nof = GameApp.tablep[j].getPlayerRegions() / 2 + 1;
-		Map.outputPanel.append(GameApp.tablep[j].getPlayerName() + " recieves " + nof + " soldiers");
+		System.out.println(GameApp.tablep[j].getPlayerName() + " recieves " + nof + " soldiers");
 		return nof;
 	} // End of checkSoldiers()
 
@@ -262,23 +272,28 @@ public class Function {
 		int flagint = 0;
 		String answerS = null; // Used for String answers //
 		while (s != 0) {
-			Map.outputPanel.append(String.valueOf(alliedStates));
-			Map.outputPanel.append("Where would you like to place your soldiers ?");
-			Map.outputPanel.append("Remaining soldiers to place : " + s);
+			System.out.println(alliedStates);
+			System.out.println("Where would you like to place your soldiers ?");
+			System.out.println("Remaining soldiers to place : " + s);
 			flag = true;
+			flagint = 0;
+			int co = 0;
 			outerloop: while (flag) { // Check valid input
 
 				answerS = keyboard.nextLine();
 
 				for (counter = 0; counter < alliedStates.size(); counter++) {
 					if (answerS.equals(alliedStates.get(counter))) {
+						flagint = 1;
 						break outerloop;
 					}
 				}
-
-				if (flagint == 0) { // RNF !!!!!!!!!!!!!!!!!
-					Map.outputPanel.append("Region not found, please try again..."); // Wrong input message
+				if (co != 0) {
+					if (flagint == 0) { // RNF !!!!!!!!!!!!!!!!!
+						System.out.println("Region not found, please try again..."); // Wrong input message
+					}
 				}
+				co++;
 
 			}
 
@@ -288,20 +303,20 @@ public class Function {
 				}
 			}
 
-			Map.outputPanel.append("How many soldiers do you want to place ?");
+			System.out.println("How many soldiers do you want to place ?");
 			flag = true;
 			while (flag) { // Check valid input
 
 				answerI = keyboard.nextInt();
 
 				if (answerI < 0) {
-					Map.outputPanel.append("Wrong input : Positive number of soldiers expected, please try again."); // Wrong
+					System.out.println("Wrong input : Positive number of soldiers expected, please try again."); // Wrong
 																													// input
 																													// message
 				} else if (s - answerI < 0) {
-					Map.outputPanel.append("You dont have enough soldiers for that."); // Valid input but more soldiers than
+					System.out.println("You dont have enough soldiers for that."); // Valid input but more soldiers than
 																					// you have
-					Map.outputPanel.append("Try again...");
+					System.out.println("Try again...");
 				} else {
 					flag = false;
 				}
@@ -331,8 +346,8 @@ public class Function {
 			}
 		}
 		if (attackerSoldiers == 1) { // Attacker loses
-			Map.outputPanel.append("Attacker lost!");
-			Map.outputPanel.append("All your soldiers have beed defeated.\n");
+			System.out.println("Attacker lost!");
+			System.out.println("All your soldiers have beed defeated.\n");
 			GameApp.tabler[ra].setRegionSoldiers(1);
 			GameApp.tabler[rd].setRegionSoldiers(defenderSoldiers);
 		}
@@ -342,9 +357,9 @@ public class Function {
 																							// regions by 1
 			GameApp.tablep[jd].setPlayerRegions(GameApp.tablep[jd].getPlayerRegions() - 1); // Decreases defender's
 																							// regions by 1
-			Map.outputPanel.append("Attacker wins! How many soldiers do you want to place in "
+			System.out.println("Attacker wins! How many soldiers do you want to place in "
 					+ GameApp.tabler[rd].getRegionName() + "?");
-			Map.outputPanel.append("You have " + (attackerSoldiers - 1) + " available soldiers.");
+			System.out.println("You have " + (attackerSoldiers - 1) + " available soldiers.");
 
 			while (flag) {
 				answerI = keyboard.nextInt();
@@ -354,9 +369,9 @@ public class Function {
 					GameApp.tabler[ra].setRegionSoldiers(attackerSoldiers - answerI);
 					GameApp.tabler[rd].setRegionColor(GameApp.tabler[ra].getRegionColor());
 				} else {
-					Map.outputPanel.append("Wrong input : number of soldiers must be zero or positive and less than "
-							+ attackerSoldiers);
-					Map.outputPanel.append("Please try again..."); // Wrong input message
+					System.out.println(
+							"Wrong input : number of soldiers must positive and less than " + attackerSoldiers);
+					System.out.println("Please try again..."); // Wrong input message
 				}
 			}
 		}
@@ -365,8 +380,8 @@ public class Function {
 	public static void fortify(int f1, int f2) { // The option of fortifying soldiers ( from where; to where; how much;
 													// )
 
-		Map.outputPanel.append("How many soldiers do you want to move ?");
-		Map.outputPanel.append("You can move up to " + (GameApp.tabler[f1].getRegionSoldiers() - 1) + " soldiers.");
+		System.out.println("How many soldiers do you want to move ?");
+		System.out.println("You can move up to " + (GameApp.tabler[f1].getRegionSoldiers() - 1) + " soldiers.");
 		int answerI;
 		do {
 			answerI = keyboard.nextInt();
@@ -375,15 +390,15 @@ public class Function {
 				GameApp.tabler[f2].setRegionSoldiers(GameApp.tabler[f2].getRegionSoldiers() + answerI);
 				break;
 			} else {
-				Map.outputPanel.append("Wrong input : number of soldiers must be greater than 1 and less or equal to "
+				System.out.println("Wrong input : number of soldiers must be greater than 1 and less or equal to "
 						+ (GameApp.tabler[f1].getRegionSoldiers() - 1));
-				Map.outputPanel.append("Please try again..."); // Wrong input message
+				System.out.println("Please try again..."); // Wrong input message
 			}
 		} while (true);
 	} // End of fortify()
 
 	public static void skip(int j) {
 
-		Map.outputPanel.append(GameApp.tablep[j].getPlayerName() + " skipped his turn");
+		System.out.println(GameApp.tablep[j].getPlayerName() + " skipped his turn");
 	} // End of skip()
 } // End of class
