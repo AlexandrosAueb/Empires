@@ -1,20 +1,18 @@
 import java.awt.BorderLayout;
-import java.awt.Dialog;
+import java.awt.Color;
 import java.awt.FlowLayout;
-
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Image;
-import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 public class RegionInfo extends JDialog {
 
@@ -40,6 +38,7 @@ public class RegionInfo extends JDialog {
 		setResizable(false);
 		setBounds(600, 300, 754, 257);
 		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(Color.WHITE);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
@@ -52,6 +51,7 @@ public class RegionInfo extends JDialog {
 		contentPanel.add(InfoIcon);
 		
 		JTextArea txtrTheOriginsOf = new JTextArea();
+		txtrTheOriginsOf.setBackground(Color.WHITE);
 		txtrTheOriginsOf.setLineWrap(true);
 		txtrTheOriginsOf.setFont(new Font("Arial", Font.PLAIN, 16));
 		txtrTheOriginsOf.setText("The origins of Ravenna are uncertain. \nHowever, the oldest archaeological evidence found allows us to date the presence of \nRavenna at least to the 5th century BC, where they remained undisturbed until the \n3rd century BC, when the first contacts with Roman civilization began to take place. \nLater in history, Ravenna became the capital of the West Roman Empire after the \ntransference of Rome to the East. Ravenna had been the host of the exiled poet \nnamed Dante, who is widely considered one of the most important poets of the Middle Ages. ");

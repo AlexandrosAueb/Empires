@@ -80,8 +80,9 @@ public class MainMenu {
 			public void actionPerformed(ActionEvent arg0) {
 				GameApp.initializePlayers();
 				frame.dispose();
-				Map.map();
-				//Function.gameStart();
+				Mapp.maps();
+				Function.gameStart();
+
 			}
 		});
 		

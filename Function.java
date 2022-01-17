@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class Function {
 
 	static Scanner keyboard = new Scanner(System.in); // Used to get input from players
@@ -10,7 +11,6 @@ public class Function {
 	public static int i;
 
 	public static void gameStart() { // Starts the game with round 1 //
-
 		Color tempColor = null; // Used for saving player's color //
 		Color fcolor = null; // Used for saving fortifying region's color //
 		Color defenderColor = null; // Used for saving defender's color //
@@ -36,15 +36,10 @@ public class Function {
 		ArrayList<String> frtfBrds = new ArrayList<String>(); // Contains fortifying Region's borders //
 		ArrayList<String> fortifyBorders = new ArrayList<String>(); // Contains fortifying Region's borders with the
 																	// same color //
-
 		for (i = 1; i <= 50; i++) { // Round i
 			System.out.println("Round " + i + "\n");
 			for (int j = 0; j <= 3; j++) { // Player j
-				try {
-				Map.refresh();
-				} catch (Exception NullPointerException) {
-					Map.map();
-				}
+				
 				tempColor = GameApp.tablep[j].getPlayerColor();
 				alliedStates.clear(); // Removes all elements
 				for (counter = 0; counter <= 19; counter++) {
@@ -75,11 +70,6 @@ public class Function {
 
 				System.out.println(GameApp.tablep[j].getPlayerName() + " is your turn to play");
 				placeSoldiers(checkSoldiers(j), j, alliedStates);
-				try {
-					Map.refresh();
-					} catch (Exception NullPointerException) {
-						System.out.println("");
-					}
 				flag = true;
 				while (flag) { // Shows Menu at each round
 					System.out.println("Choose your next move :");
@@ -275,13 +265,13 @@ public class Function {
 			System.out.println(alliedStates);
 			System.out.println("Where would you like to place your soldiers ?");
 			System.out.println("Remaining soldiers to place : " + s);
+			
+
 			flag = true;
 			flagint = 0;
 			int co = 0;
 			outerloop: while (flag) { // Check valid input
-
 				answerS = keyboard.nextLine();
-
 				for (counter = 0; counter < alliedStates.size(); counter++) {
 					if (answerS.equals(alliedStates.get(counter))) {
 						flagint = 1;
