@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-
 public class Function {
 
 	static Scanner keyboard = new Scanner(System.in); // Used to get input from players
@@ -11,6 +10,7 @@ public class Function {
 	public static int i;
 
 	public static void gameStart() { // Starts the game with round 1 //
+
 		Color tempColor = null; // Used for saving player's color //
 		Color fcolor = null; // Used for saving fortifying region's color //
 		Color defenderColor = null; // Used for saving defender's color //
@@ -36,10 +36,17 @@ public class Function {
 		ArrayList<String> frtfBrds = new ArrayList<String>(); // Contains fortifying Region's borders //
 		ArrayList<String> fortifyBorders = new ArrayList<String>(); // Contains fortifying Region's borders with the
 																	// same color //
-		for (i = 1; i <= 50; i++) { // Round i
+		gameloop: for (i = 1; i <= 50; i++) { // Round i
 			System.out.println("Round " + i + "\n");
 			for (int j = 0; j <= 3; j++) { // Player j
-				
+				if (GameApp.tablep[j].getPlayerRegions() == 0) {
+					System.out.println(GameApp.tablep[j].getPlayerName() + " is eliminated.");
+					continue; // If one player has been eliminated
+				}
+				System.out.println();
+				System.out.println(
+						"----------------------------------------------------------------------------------------");
+
 				tempColor = GameApp.tablep[j].getPlayerColor();
 				alliedStates.clear(); // Removes all elements
 				for (counter = 0; counter <= 19; counter++) {
@@ -76,6 +83,7 @@ public class Function {
 					System.out.println("1. Attack");
 					System.out.println("2. Fortify");
 					System.out.println("3. Skip");
+
 					answerI = keyboard.nextInt();
 					if (answerI == 1 || (answerI == 2 && allowedFortify.size() != 0) || answerI == 3) { // Check valid
 																										// input for the
@@ -241,8 +249,24 @@ public class Function {
 				} else { // Option 3 : skip
 					skip(j);
 				}
+				if (GameApp.tablep[j].getPlayerRegions() == 20) {
+					break gameloop; // If a player owns all the regions
+				}
 			}
 		}
+		// The winner
+		int max = GameApp.tablep[0].getPlayerRegions();
+		String maxS = GameApp.tablep[0].getPlayerName();
+		for (int w = 1; w <= 3; w++) {
+			if (GameApp.tablep[w].getPlayerRegions() > max) {
+				max = GameApp.tablep[w].getPlayerRegions();
+				maxS = GameApp.tablep[w].getPlayerName();
+			}
+		}
+		System.out.println("----------------------------------------------------------------------------------------");
+		System.out.println(
+				"Congratulations " + maxS + " you won the game after " + i + " rounds, owning " + max + " regions!");
+		System.out.println("----------------------------------------------------------------------------------------");
 
 	} // End of gameStart()
 
@@ -262,16 +286,19 @@ public class Function {
 		int flagint = 0;
 		String answerS = null; // Used for String answers //
 		while (s != 0) {
+			System.out.println();
+			System.out.println("This is the list of your regions:");
 			System.out.println(alliedStates);
+			System.out.println();
 			System.out.println("Where would you like to place your soldiers ?");
 			System.out.println("Remaining soldiers to place : " + s);
-			
-
 			flag = true;
 			flagint = 0;
 			int co = 0;
 			outerloop: while (flag) { // Check valid input
+
 				answerS = keyboard.nextLine();
+
 				for (counter = 0; counter < alliedStates.size(); counter++) {
 					if (answerS.equals(alliedStates.get(counter))) {
 						flagint = 1;
@@ -279,7 +306,7 @@ public class Function {
 					}
 				}
 				if (co != 0) {
-					if (flagint == 0) { // RNF !!!!!!!!!!!!!!!!!
+					if (flagint == 0) {
 						System.out.println("Region not found, please try again..."); // Wrong input message
 					}
 				}
@@ -296,8 +323,14 @@ public class Function {
 			System.out.println("How many soldiers do you want to place ?");
 			flag = true;
 			while (flag) { // Check valid input
-
-				answerI = keyboard.nextInt();
+				tryloop: try {
+					answerI = keyboard.nextInt();
+					break tryloop;
+				} catch (Exception e) {
+					System.out.println("Wrong input : Integer given as input.");
+					System.out.println("Please try again");
+					System.out.println();
+				}
 
 				if (answerI < 0) {
 					System.out.println("Wrong input : Positive number of soldiers expected, please try again."); // Wrong
@@ -352,6 +385,7 @@ public class Function {
 			System.out.println("You have " + (attackerSoldiers - 1) + " available soldiers.");
 
 			while (flag) {
+				
 				answerI = keyboard.nextInt();
 				if (answerI > 0 && answerI <= attackerSoldiers - 1) {
 					flag = false;
