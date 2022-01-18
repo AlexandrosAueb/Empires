@@ -80,8 +80,8 @@ public class MainMenu {
 			public void actionPerformed(ActionEvent arg0) {
 				GameApp.initializePlayers();
 				frame.dispose();
-//				Map window = new Map();
-//				window.map();
+				Map window = new Map();
+				window.map();
 				Function.gameStart();
 
 			}
@@ -167,12 +167,12 @@ public class MainMenu {
 					playerName1=Input1.getText(); // The Input Name
 				}
 				if(Input2.getText().equals("")) {
-					playerName2="Emperor of Rome";
+					playerName2="Emperor of Egypt";
 				}else {
 					playerName2=Input2.getText();
 				}
 				if(Input3.getText().equals("")) {
-					playerName3="Emperor of Egypt";
+					playerName3="Emperor of Rome";
 				}else {
 					playerName3=Input3.getText();
 				}

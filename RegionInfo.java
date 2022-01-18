@@ -43,7 +43,7 @@ public class RegionInfo extends JDialog {
 	 */
 	public RegionInfo() {
 		setResizable(false);
-		setBounds(600, 300, 754, 257);
+		setBounds(600, 300, 849, 358);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(Color.WHITE);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -52,7 +52,7 @@ public class RegionInfo extends JDialog {
 		
 		JLabel InfoIcon = new JLabel("");
 		InfoIcon.setHorizontalAlignment(SwingConstants.CENTER);
-		InfoIcon.setBounds(0, 37, 86, 85);
+		InfoIcon.setBounds(-30, 58, 186, 152);
 		Image img = new ImageIcon(this.getClass().getResource("InfoIcon2.png")).getImage();
 		InfoIcon.setIcon(new ImageIcon(img));
 		contentPanel.add(InfoIcon);
@@ -63,7 +63,7 @@ public class RegionInfo extends JDialog {
 		txtrTheOriginsOf.setLineWrap(true);
 		txtrTheOriginsOf.setFont(new Font("Arial", Font.PLAIN, 20));
 		txtrTheOriginsOf.setEditable(false);
-		txtrTheOriginsOf.setBounds(84, 11, 654, 163);
+		txtrTheOriginsOf.setBounds(111, 6, 726, 270);
 		contentPanel.add(txtrTheOriginsOf);
 		{
 			JPanel buttonPane = new JPanel();
