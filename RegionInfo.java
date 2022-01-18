@@ -16,6 +16,13 @@ import javax.swing.border.EmptyBorder;
 
 public class RegionInfo extends JDialog {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7853539963977043000L;
+	/**
+	 * 
+	 */
 	private final JPanel contentPanel = new JPanel();
 
 	/**
@@ -50,11 +57,11 @@ public class RegionInfo extends JDialog {
 		InfoIcon.setIcon(new ImageIcon(img));
 		contentPanel.add(InfoIcon);
 		
-		JTextArea txtrTheOriginsOf = new JTextArea();
+		JTextArea txtrTheOriginsOf = new JTextArea(Map.infoText);
+		txtrTheOriginsOf.setWrapStyleWord(true);
 		txtrTheOriginsOf.setBackground(Color.WHITE);
 		txtrTheOriginsOf.setLineWrap(true);
-		txtrTheOriginsOf.setFont(new Font("Arial", Font.PLAIN, 16));
-		txtrTheOriginsOf.setText("The origins of Ravenna are uncertain. \nHowever, the oldest archaeological evidence found allows us to date the presence of \nRavenna at least to the 5th century BC, where they remained undisturbed until the \n3rd century BC, when the first contacts with Roman civilization began to take place. \nLater in history, Ravenna became the capital of the West Roman Empire after the \ntransference of Rome to the East. Ravenna had been the host of the exiled poet \nnamed Dante, who is widely considered one of the most important poets of the Middle Ages. ");
+		txtrTheOriginsOf.setFont(new Font("Arial", Font.PLAIN, 20));
 		txtrTheOriginsOf.setEditable(false);
 		txtrTheOriginsOf.setBounds(84, 11, 654, 163);
 		contentPanel.add(txtrTheOriginsOf);
