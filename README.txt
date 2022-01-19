@@ -10,6 +10,8 @@ Read the story and enter the names of the players.
 Make sure you click the RULES button to see how to play our game.
 Click the SUBMIT button and then START to start the game.
 
+You can see the map by double clicking the jar fie.
+
 NOTE! We didn't manage to connect the game which runs from the CMD to the map we have created.
 Although it is being refreshed at each round but we coudldn't spawn it at the same time with the running game.
 You can see the map refreshed only in the end of the game by pressing CNTRL + Z & ENTER.
