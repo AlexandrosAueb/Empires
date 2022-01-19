@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -48,6 +49,16 @@ public class MainMenu {
 	public MainMenu() {
 		initialize();
 	}
+	Thread thread1 = new Thread() {
+		public void run() {
+			Map.map(); 
+		}
+	};
+	Thread thread2 = new Thread() {
+		public void run() {
+		Function.gameStart();
+		}
+	};
 
 	/**
 	 * Initialize the contents of the frame.
@@ -80,10 +91,8 @@ public class MainMenu {
 			public void actionPerformed(ActionEvent arg0) {
 				GameApp.initializePlayers();
 				frame.dispose();
-				Map window = new Map();
-				window.map();
-				Function.gameStart();
-
+				thread1.start();
+				thread2.start();
 			}
 		});
 		
@@ -183,10 +192,20 @@ public class MainMenu {
 				}
 			}
 		});
+		Image img = new ImageIcon(this.getClass().getResource("/BG.jpg")).getImage();
+		
+		JButton btnNewButton_2 = new JButton("RULES (!)");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Rules.rules();
+			}
+		});
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		btnNewButton_2.setBounds(978, 37, 129, 44);
+		frame.getContentPane().add(btnNewButton_2);
 		
 		//BG image
 		JLabel lblNewLabel_3 = new JLabel("BG");
-		Image img = new ImageIcon(this.getClass().getResource("/BG.jpg")).getImage();
 		lblNewLabel_3.setIcon(new ImageIcon(img));
 		lblNewLabel_3.setBounds(0, 0, 1266, 884);
 		frame.getContentPane().add(lblNewLabel_3);
